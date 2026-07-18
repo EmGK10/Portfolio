@@ -1,3 +1,4 @@
+// ===== V2 — si ves este comentario en la página en vivo, sí se actualizó =====
 /* ============================================================
    cad-viewer.js — visor 3D interactivo para el portafolio CAD
    Usa Three.js (ESM vía CDN, ver importmap en cad.html)
