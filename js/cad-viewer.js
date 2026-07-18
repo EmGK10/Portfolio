@@ -292,6 +292,42 @@ async function loadModel(key) {
         scene.add(currentGroup);
         frameObject(currentGroup);
         if (loadingEl) loadingEl.style.display = "none";
+
+        // --- diagnóstico temporal: quitar cuando ya funcione ---
+        console.log("[cad-viewer] modelo cargado:", key);
+        let meshCount = 0;
+        currentGroup.traverse((obj) => {
+          if (obj.isMesh) {
+            meshCount++;
+            const posAttr = obj.geometry.attributes.position;
+            console.log(
+              `[cad-viewer] mesh "${obj.name}": vértices=${posAttr ? posAttr.count : 0}`,
+              "material:",
+              obj.material
+                ? {
+                    type: obj.material.type,
+                    color: obj.material.color ? obj.material.color.getHexString() : null,
+                    metalness: obj.material.metalness,
+                    roughness: obj.material.roughness,
+                    visible: obj.visible,
+                    opacity: obj.material.opacity,
+                    transparent: obj.material.transparent,
+                  }
+                : "sin material"
+            );
+          }
+        });
+        console.log(`[cad-viewer] total meshes encontrados: ${meshCount}`);
+        const box = new THREE.Box3().setFromObject(currentGroup);
+        console.log(
+          "[cad-viewer] bounding box min/max:",
+          box.min,
+          box.max,
+          "size:",
+          box.getSize(new THREE.Vector3())
+        );
+        console.log("[cad-viewer] posición cámara:", camera.position, "target:", controls.target);
+        // --- fin diagnóstico ---
       },
       undefined,
       (err) => {
