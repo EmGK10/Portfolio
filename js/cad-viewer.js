@@ -1,4 +1,4 @@
-// ===== V2 — si ves este comentario en la página en vivo, sí se actualizó =====
+// ===== V3 — si ves este comentario en la página en vivo, sí se actualizó =====
 /* ============================================================
    cad-viewer.js — visor 3D interactivo para el portafolio CAD
    Usa Three.js (ESM vía CDN, ver importmap en cad.html)
@@ -296,6 +296,21 @@ async function loadModel(key) {
       key,
       (gltf) => {
         currentGroup = gltf.scene;
+
+        // Muchos exportadores (Blender/SolidWorks) dejan piezas sin material,
+        // lo que hace que el visor use el material por defecto de glTF:
+        // 100% metálico y 100% rugoso. Sin un mapa de entorno fuerte, eso se
+        // ve prácticamente negro. Lo sustituimos por un metal visible normal.
+        currentGroup.traverse((obj) => {
+          if (!obj.isMesh || !obj.material) return;
+          const m = obj.material;
+          const looksLikeDefaultMaterial =
+            (m.metalness ?? 0) >= 0.9 && (m.roughness ?? 0) >= 0.9 && !m.map;
+          if (looksLikeDefaultMaterial) {
+            obj.material = metalMat(0x9a9a9a, 0.45, 0.4);
+          }
+        });
+
         scene.add(currentGroup);
         frameObject(currentGroup);
         if (loadingEl) loadingEl.style.display = "none";
