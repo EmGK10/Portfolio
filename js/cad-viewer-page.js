@@ -39,7 +39,7 @@ const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1.1;
+renderer.toneMappingExposure = 1.6;
 renderer.setSize(window.innerWidth, window.innerHeight);
 host.appendChild(renderer.domElement);
 
@@ -72,20 +72,24 @@ controls.enablePan = true;
 controls.minDistance = 0.01;
 controls.maxDistance = 1e6;
 
-const ambient = new THREE.AmbientLight(0xffffff, 0.35);
+const ambient = new THREE.AmbientLight(0xffffff, 0.75);
 scene.add(ambient);
 
-const keyLight = new THREE.DirectionalLight(0xfff2df, 1.5);
+const keyLight = new THREE.DirectionalLight(0xfff2df, 2.6);
 keyLight.position.set(5, 6, 4);
 scene.add(keyLight);
 
-const rimLight = new THREE.DirectionalLight(0x9fb8c9, 0.9);
+const rimLight = new THREE.DirectionalLight(0x9fb8c9, 1.6);
 rimLight.position.set(-5, 2, -4);
 scene.add(rimLight);
 
-const fillLight = new THREE.PointLight(ACCENT, 0.6, 60);
+const fillLight = new THREE.PointLight(ACCENT, 1.1, 0);
 fillLight.position.set(-2, -1, 3);
 scene.add(fillLight);
+
+const frontLight = new THREE.DirectionalLight(0xffffff, 1.6);
+frontLight.position.set(0, 3, 8);
+scene.add(frontLight);
 
 window.addEventListener("resize", () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
