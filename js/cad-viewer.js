@@ -1,4 +1,4 @@
-// ===== V3 — si ves este comentario en la página en vivo, sí se actualizó =====
+// ===== V4 — si ves este comentario en la página en vivo, sí se actualizó =====
 /* ============================================================
    cad-viewer.js — visor 3D interactivo para el portafolio CAD
    Usa Three.js (ESM vía CDN, ver importmap en cad.html)
@@ -314,6 +314,29 @@ async function loadModel(key) {
         scene.add(currentGroup);
         frameObject(currentGroup);
         if (loadingEl) loadingEl.style.display = "none";
+
+        // --- diagnóstico V4 ---
+        console.log("[v4] escena hijos:", scene.children.length);
+        console.log("[v4] canvas buffer:", renderer.domElement.width, "x", renderer.domElement.height);
+        console.log("[v4] canvas CSS size:", renderer.domElement.style.width, renderer.domElement.style.height);
+        console.log("[v4] wrap client size:", document.getElementById("cadCanvasWrap").clientWidth, document.getElementById("cadCanvasWrap").clientHeight);
+        console.log("[v4] camera near/far/pos:", camera.near, camera.far, camera.position.toArray());
+        console.log("[v4] controls target/dist:", controls.target.toArray(), controls.minDistance, controls.maxDistance);
+        console.log("[v4] scene.environment:", scene.environment);
+        currentGroup.traverse((obj) => {
+          if (obj.isMesh) {
+            console.log(
+              `[v4] mesh "${obj.name}" material tras override:`,
+              obj.material.type,
+              obj.material.color ? obj.material.color.getHexString() : null,
+              "metalness=" + obj.material.metalness,
+              "roughness=" + obj.material.roughness,
+              "visible=" + obj.visible
+            );
+          }
+        });
+        console.log("[v4] WebGL context:", renderer.getContext());
+        // --- fin diagnóstico ---
       },
       undefined,
       (err) => {
