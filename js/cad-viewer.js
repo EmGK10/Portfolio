@@ -17,6 +17,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 
 let renderer, scene, camera, controls, currentGroup, animId, resizeObserver;
 
@@ -30,11 +31,20 @@ function initRendererOnce(wrap) {
   renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.1;
   wrap.appendChild(renderer.domElement);
 
   scene = new THREE.Scene();
   scene.background = null;
   scene.fog = new THREE.Fog(0x0a0a0b, 8, 22);
+
+  // Entorno de iluminación (PMREM) — sin esto, los materiales metálicos/PBR
+  // que traen muchos .glb exportados desde Blender/CAD (metalness=1, sin
+  // textura) se ven casi negros porque no tienen nada que reflejar.
+  const pmremGenerator = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmremGenerator.fromScene(new RoomEnvironment(), 0.04).texture;
+  pmremGenerator.dispose();
 
   camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
   camera.position.set(3.4, 2.4, 4.2);
