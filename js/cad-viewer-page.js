@@ -92,6 +92,10 @@ const frontLight = new THREE.DirectionalLight(0xffffff, 1.6);
 frontLight.position.set(0, 3, 8);
 scene.add(frontLight);
 
+const backLight = new THREE.DirectionalLight(0xffffff, 1.2);
+backLight.position.set(0, -3, -8);
+scene.add(backLight);
+
 window.addEventListener("resize", () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
   camera.aspect = window.innerWidth / window.innerHeight;
@@ -290,12 +294,9 @@ if (isFile) {
       // vienen invertidas por el proceso de exportación.
       root.traverse((obj) => {
         if (!obj.isMesh || !obj.material) return;
-        const m = obj.material;
-        const looksLikeDefaultMaterial =
-          (m.metalness ?? 0) >= 0.9 && (m.roughness ?? 0) >= 0.9 && !m.map;
-        if (looksLikeDefaultMaterial) {
-          obj.material = metalMat(0x9a9a9a, 0.45, 0.4);
-        }
+        // gris uniforme en todas las piezas (más contraste, no depende
+        // del material que traiga el archivo original).
+        obj.material = metalMat(0x9a9a9a, 0.45, 0.4);
         obj.material.side = THREE.DoubleSide;
       });
 
