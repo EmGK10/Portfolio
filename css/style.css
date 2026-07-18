@@ -399,6 +399,36 @@ button{ font-family: inherit; }
   font-size: 12px; letter-spacing:0.15em; text-transform:uppercase; color: var(--muted-2);
 }
 
+/* ---------- visor 3D de página completa (visor3d.html) ---------- */
+.viewer-canvas-host{
+  position: fixed; inset:0; z-index: 1;
+  background: radial-gradient(ellipse at 50% 40%, #17171a 0%, #0b0b0c 70%);
+}
+.viewer-canvas-host canvas{ display:block; }
+
+.viewer-overlay{
+  position: fixed; left:0; right:0; bottom:0; z-index: 400;
+  padding: 32px clamp(20px, 5vw, 64px) 40px;
+  background: linear-gradient(to top, rgba(11,11,12,0.95), rgba(11,11,12,0));
+  pointer-events: none;
+}
+.viewer-overlay > *{ pointer-events: auto; }
+.viewer-overlay h1{ margin-top: 12px; font-size: clamp(1.4rem, 3vw, 2.1rem); }
+.viewer-overlay p{ margin-top: 8px; color: var(--muted); max-width: 60ch; font-size: 0.92rem; }
+.viewer-hint{
+  display:inline-block; margin-top: 16px; font-size: 11px; letter-spacing:0.1em; text-transform:uppercase;
+  color: var(--muted-2);
+}
+.viewer-loading{
+  position: fixed; inset:0; z-index: 300;
+  display:flex; align-items:center; justify-content:center;
+  font-size: 12px; letter-spacing:0.15em; text-transform:uppercase; color: var(--muted-2);
+  background: var(--bg);
+  transition: opacity .4s var(--ease);
+}
+.viewer-loading.hidden{ opacity:0; pointer-events:none; }
+.viewer-loading.viewer-error{ color: #d98787; opacity:1; pointer-events:auto; background: rgba(11,11,12,0.92); }
+
 /* ---------- misc ---------- */
 .split-two{
   display:grid; grid-template-columns: 1fr 1.3fr; gap: 60px;
