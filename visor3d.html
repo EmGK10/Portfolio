@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Visor 3D — Emilia Gómez Murillo</title>
+<title>3D Viewer — Emilia Gómez Murillo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://unpkg.com" crossorigin />
 <link rel="preconnect" href="https://www.gstatic.com" crossorigin />
@@ -26,25 +26,25 @@
 <nav class="site-nav">
   <a class="nav-brand" href="index.html">E. Gómez Murillo</a>
   <ul class="nav-links">
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="certificados.html">Certificados &amp; Reconocimientos</a></li>
-    <li><a href="cad.html" class="active">Diseños CAD · 3D</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="certificados.html">Certificates &amp; Recognitions</a></li>
+    <li><a href="cad.html" class="active">CAD Designs · 3D</a></li>
   </ul>
-  <button class="nav-toggle" aria-label="Abrir menú">☰</button>
+  <button class="nav-toggle" aria-label="Open menu">☰</button>
 </nav>
 
 <div class="viewer-canvas-host" id="viewerCanvasHost"></div>
 
-<div class="viewer-loading" id="viewerLoading">Cargando modelo…</div>
+<div class="viewer-loading" id="viewerLoading">Loading model…</div>
 
 <div class="viewer-overlay">
-  <a class="back-link" href="cad.html">← Volver a Diseños CAD</a>
-  <h1 id="viewerTitle">Modelo 3D</h1>
+  <a class="back-link" href="cad.html">← Back to CAD Designs</a>
+  <h1 id="viewerTitle">3D Model</h1>
   <p id="viewerDesc"></p>
-  <span class="viewer-hint">Arrastra para rotar · Scroll (o pellizca) para hacer zoom</span>
+  <span class="viewer-hint">Drag to rotate · Scroll (or pinch) to zoom</span>
 </div>
 
 <script src="js/main.js"></script>
-<script type="module" src="js/cad-viewer-page.js?v=5"></script>
+<script type="module" src="js/cad-viewer-page.js?v=6"></script>
 </body>
 </html>
