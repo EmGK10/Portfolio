@@ -71,9 +71,9 @@ function initRendererOnce(wrap) {
   rim.position.set(-5, 2, -4);
   scene.add(rim);
 
-  const fill = new THREE.PointLight(ACCENT, 0.6, 12);
-  fill.position.set(-2, -1, 3);
-  scene.add(fill);
+  const backLight = new THREE.DirectionalLight(0xffffff, 1.2);
+  backLight.position.set(0, -3, -8);
+  scene.add(backLight);
 
   // suelo sutil para recibir sombra de contacto (falsa, vía gradient)
   const groundGeo = new THREE.CircleGeometry(6, 48);
