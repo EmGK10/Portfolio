@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Diseños CAD · Portafolio 3D — Emilia Gómez Murillo</title>
+<title>CAD Designs · 3D Portfolio — Emilia Gómez Murillo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="stylesheet" href="css/style.css" />
 
@@ -25,25 +25,25 @@
   <a class="nav-brand" href="index.html">E. Gómez Murillo</a>
   <ul class="nav-links">
     <li><a href="index.html">Inicio</a></li>
-    <li><a href="certificados.html">Certificados &amp; Reconocimientos</a></li>
-    <li><a href="cad.html">Diseños CAD · 3D</a></li>
+    <li><a href="certificados.html">Certificates &amp; Acknowledgements</a></li>
+    <li><a href="cad.html">CAD Designs · 3D</a></li>
   </ul>
-  <button class="nav-toggle" aria-label="Abrir menú">☰</button>
+  <button class="nav-toggle" aria-label="Open Menu">☰</button>
 </nav>
 
 <header class="page-header container">
-  <p class="section-eyebrow reveal">Portafolio técnico</p>
-  <h1 class="reveal">Diseños CAD · Portafolio 3D</h1>
+  <p class="section-eyebrow reveal">Technical Portfolio</p>
+  <h1 class="reveal">CAD Design · 3D Potafolio</h1>
   <p class="reveal">
-    Selección de modelados CAD. Haz clic en cualquier proyecto para abrir el visor 3D
-    interactivo: arrastra para rotar y usa la rueda del mouse (o pellizca) para hacer zoom.
+    Selection of CAD models. Click on any project to open the interactive 3D viewer:
+    drag to rotate and use the mouse wheel (or pinch) to zoom.
   </p>
-  <a class="back-link reveal" href="index.html">← Volver al inicio</a>
+  <a class="back-link reveal" href="index.html">← Back to the top</a>
 </header>
 
 <section class="gallery-block container">
   <div class="section-head reveal">
-    <p class="section-eyebrow">Proyectos</p>
+    <p class="section-eyebrow">Projects</p>
     <h2>Modelados</h2>
     <p class="section-sub">
       Contenido de ejemplo con modelos 3D procedurales — cuando tengas tus archivos
@@ -54,17 +54,17 @@
   <div class="gallery-grid reveal-stagger">
     <div class="gcard reveal" data-cad
          data-model="bracket"
-         data-title="Soporte de Bracket Ajustable"
-         data-desc="Soporte estructural con ranuras de ajuste y alivio de peso, diseñado para montaje en línea de ensamble.">
+         data-title="Sheet Metal Box"
+         data-desc="Sheet metal bending box, for industrial use in electrical panels.">
       <div class="thumb">
-        <img src="assets/cad/bracket.svg" alt="Vista previa: Soporte de Bracket Ajustable" loading="lazy" />
+        <img src="assets/cad/SheetMetalBox.svg" alt="Preview: Sheet Metal Boxe" loading="lazy" />
         <span class="zoom-hint">⟳</span>
       </div>
       <div class="body">
-        <h4>Soporte de Bracket Ajustable</h4>
+        <h4>Sheet Metal Box</h4>
         <div class="meta">SolidWorks · Chapa metálica</div>
-        <p class="desc">Soporte con ranuras de ajuste y alivio de peso para montaje en línea.</p>
-        <span class="cad-tag">Ver en 3D</span>
+        <p class="desc">Sheet metal bending box, for industrial use in electrical panels.</p>
+        <span class="cad-tag">3D View</span>
       </div>
     </div>
 
@@ -114,11 +114,11 @@
 
 <!-- ============ MODAL VISOR 3D ============ -->
 <div class="cad-modal" id="cadModal">
-  <button class="lightbox-close" id="cadModalClose" aria-label="Cerrar">✕</button>
+  <button class="lightbox-close" id="cadModalClose" aria-label="Close">✕</button>
   <div class="cad-modal-inner">
     <div class="cad-canvas-wrap" id="cadCanvasWrap">
-      <div class="cad-loading" id="cadLoading">Cargando modelo…</div>
-      <span class="cad-hint">Arrastra para rotar · Scroll para zoom</span>
+      <div class="cad-loading" id="cadLoading">Loading Model…</div>
+      <span class="cad-hint">Drag to rotate · Scroll to zoom</span>
     </div>
     <div class="cad-modal-footer">
       <div>
