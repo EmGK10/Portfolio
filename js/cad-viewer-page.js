@@ -13,6 +13,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 
 const ACCENT = 0xc9a24b;
@@ -269,7 +270,14 @@ animate();
 const isFile = /\.(glb|gltf)$/i.test(modelKey);
 
 if (isFile) {
+  // algunos .glb (sobre todo exportados desde Blender) vienen con la
+  // geometría comprimida con Draco — sin este decodificador, GLTFLoader
+  // tira "No DRACOLoader instance provided" y el modelo nunca carga.
+  const dracoLoader = new DRACOLoader();
+  dracoLoader.setDecoderPath("https://www.gstatic.com/draco/versioned/decoders/1.5.7/");
+
   const loader = new GLTFLoader();
+  loader.setDRACOLoader(dracoLoader);
   loader.load(
     modelKey,
     (gltf) => {
