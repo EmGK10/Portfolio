@@ -1,4 +1,4 @@
-// ===== V4 — si ves este comentario en la página en vivo, sí se actualizó =====
+// ===== V5 — si ves este comentario en la página en vivo, sí se actualizó =====
 /* ============================================================
    cad-viewer.js — visor 3D interactivo para el portafolio CAD
    Usa Three.js (ESM vía CDN, ver importmap en cad.html)
@@ -309,6 +309,14 @@ async function loadModel(key) {
           if (looksLikeDefaultMaterial) {
             obj.material = metalMat(0x9a9a9a, 0.45, 0.4);
           }
+          // Muchas piezas CAD exportadas a glTF (Blender, SolidWorks, etc.)
+          // traen las normales/orientación de cara invertidas por el proceso
+          // de conversión de ejes o por escalas negativas. Si solo se dibuja
+          // el lado "de frente" (comportamiento por defecto), la pieza puede
+          // volverse invisible desde casi cualquier ángulo. Forzamos que se
+          // dibujen ambos lados para no depender de que la exportación
+          // venga perfecta.
+          obj.material.side = THREE.DoubleSide;
         });
 
         scene.add(currentGroup);
