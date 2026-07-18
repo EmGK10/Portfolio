@@ -23,7 +23,7 @@ const METAL = 0x8a8d90;
 /* ---------- parámetros de la URL ---------- */
 const params = new URLSearchParams(window.location.search);
 const modelKey = params.get("model") || "bracket";
-const title = params.get("title") || "Modelo 3D";
+const title = params.get("title") || "3D Model";
 const desc = params.get("desc") || "";
 
 const titleEl = document.getElementById("viewerTitle");
@@ -307,8 +307,8 @@ if (isFile) {
     },
     undefined,
     (err) => {
-      console.error("Error cargando modelo 3D:", err);
-      showError("No se pudo cargar el modelo 3D.");
+      console.error("Error loading 3D model:", err);
+      showError("The 3D model could not be loaded.");
     }
   );
 } else {
