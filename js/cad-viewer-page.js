@@ -45,6 +45,8 @@ host.appendChild(renderer.domElement);
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x0b0b0c);
+// el rango se ajusta dinámicamente por modelo en frameObject() — estos
+// valores iniciales son solo un fallback antes de cargar nada.
 scene.fog = new THREE.Fog(0x0a0a0b, 10, 40);
 
 // Entorno de iluminación (PMREM) — sin esto, materiales metálicos/PBR
@@ -233,6 +235,13 @@ function frameObject(obj) {
   controls.minDistance = dist / 25;
   controls.maxDistance = dist * 20;
   controls.update();
+
+  // la niebla también se ajusta al tamaño del modelo — si se deja fija,
+  // modelos grandes (escala real, cientos de unidades) quedan totalmente
+  // "difuminados" al color de fondo antes de que la cámara los alcance,
+  // y se ven negros/invisibles aunque sí se estén dibujando.
+  scene.fog.near = dist * 1.4;
+  scene.fog.far = dist * 6;
 }
 
 function hideLoading() {
