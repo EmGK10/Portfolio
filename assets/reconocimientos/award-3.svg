@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" width="600" height="420">
+<defs>
+<linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#141412"/>
+<stop offset="1" stop-color="#1c1a16"/>
+</linearGradient>
+</defs>
+<rect width="600" height="420" fill="url(#bg2)"/>
+<rect x="18" y="18" width="564" height="384" fill="none" stroke="#c9a24b" stroke-width="2"/>
+<text x="300" y="95" text-anchor="middle" font-family="Georgia, serif" font-size="24" fill="#f5f2ea" letter-spacing="4">RECONOCIMIENTO</text>
+<polygon points="300,140 312,175 349,175 319,197 330,232 300,210 270,232 281,197 251,175 288,175" fill="#e7e0cf"/>
+<path d="M285 232 L270 280 L300 262 L330 280 L315 232" fill="none" stroke="#e7e0cf" stroke-width="2"/>
+<text x="300" y="320" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#c9a24b">Primer Lugar · Reto de Diseño CAD</text>
+<text x="300" y="348" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#b9b3a6">Asociación de Diseñadores Industriales · 2024</text>
+<text x="300" y="385" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#7d7869" letter-spacing="2">CONTENIDO DE EJEMPLO</text>
+</svg>
