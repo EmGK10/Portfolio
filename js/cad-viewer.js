@@ -322,6 +322,7 @@ async function loadModel(key) {
         scene.add(currentGroup);
         frameObject(currentGroup);
         if (loadingEl) loadingEl.style.display = "none";
+         window.__cadDebug = { renderer, scene, camera, currentGroup, controls, THREE };
 
         // --- diagnóstico V4 ---
         console.log("[v4] escena hijos:", scene.children.length);
