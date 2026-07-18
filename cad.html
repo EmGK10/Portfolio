@@ -6,16 +6,6 @@
 <title>Diseños CAD · Portafolio 3D — Emilia Gómez Murillo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="stylesheet" href="css/style.css" />
-
-<!-- import map para Three.js (ESM vía CDN) -->
-<script type="importmap">
-{
-  "imports": {
-    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-  }
-}
-</script>
 </head>
 <body>
 
@@ -35,8 +25,9 @@
   <p class="section-eyebrow reveal">Portafolio técnico</p>
   <h1 class="reveal">Diseños CAD · Portafolio 3D</h1>
   <p class="reveal">
-    Selección de modelados CAD. Haz clic en cualquier proyecto para abrir el visor 3D
-    interactivo: arrastra para rotar y usa la rueda del mouse (o pellizca) para hacer zoom.
+    Selección de modelados CAD. Haz clic en cualquier proyecto para abrir su visor 3D
+    interactivo en pantalla completa: arrastra para rotar y usa la rueda del mouse
+    (o pellizca) para hacer zoom.
   </p>
   <a class="back-link reveal" href="index.html">← Volver al inicio</a>
 </header>
@@ -47,15 +38,12 @@
     <h2>Modelados</h2>
     <p class="section-sub">
       Contenido de ejemplo con modelos 3D procedurales — cuando tengas tus archivos
-      reales en formato .glb/.gltf, se cargan en el mismo visor (ver js/cad-viewer.js).
+      reales en formato .glb/.gltf, se cargan en el mismo visor (ver js/cad-viewer-page.js).
     </p>
   </div>
 
   <div class="gallery-grid reveal-stagger">
-    <div class="gcard reveal" data-cad
-         data-model="assets/cad/sheetmetalbox2.glb"
-         data-title="Caja de Lámina Metálica"
-         data-desc="Modelado de caja en lámina metálica, diseñado en Solid Works">
+    <a class="gcard reveal" href="visor3d.html?model=assets%2Fcad%2Fsheetmetalbox2.glb&amp;title=Caja%20de%20L%C3%A1mina%20Met%C3%A1lica&amp;desc=Modelado%20de%20caja%20en%20l%C3%A1mina%20met%C3%A1lica%2C%20dise%C3%B1ado%20en%20Solid%20Works">
       <div class="thumb">
         <img src="assets/cad/SheetMetalBox.png" alt="Preview: Sheet Metal Box" loading="lazy" />
         <span class="zoom-hint">⟳</span>
@@ -66,12 +54,9 @@
         <p class="desc">Sheet metal bending box, for industrial use in electrical panels.</p>
         <span class="cad-tag">3D View</span>
       </div>
-    </div>
+    </a>
 
-    <div class="gcard reveal" data-cad
-         data-model="gear"
-         data-title="Engranaje Reductor"
-         data-desc="Engranaje recto de 12 dientes para tren reductor, optimizado para manufactura por corte CNC.">
+    <a class="gcard reveal" href="visor3d.html?model=gear&amp;title=Engranaje%20Reductor&amp;desc=Engranaje%20recto%20de%2012%20dientes%2C%20tren%20reductor%20para%20actuador%20industrial.">
       <div class="thumb">
         <img src="assets/cad/gear.svg" alt="Vista previa: Engranaje Reductor" loading="lazy" />
         <span class="zoom-hint">⟳</span>
@@ -82,12 +67,9 @@
         <p class="desc">Engranaje recto de 12 dientes, tren reductor para actuador industrial.</p>
         <span class="cad-tag">Ver en 3D</span>
       </div>
-    </div>
+    </a>
 
-    <div class="gcard reveal" data-cad
-         data-model="piston"
-         data-title="Ensamble de Pistón"
-         data-desc="Ensamble pistón–biela–perno para motor de combustión de baja cilindrada, con tolerancias GD&T definidas.">
+    <a class="gcard reveal" href="visor3d.html?model=piston&amp;title=Ensamble%20de%20Pist%C3%B3n&amp;desc=Ensamble%20pist%C3%B3n%E2%80%93biela%E2%80%93perno%20con%20tolerancias%20GD%26T%20definidas.">
       <div class="thumb">
         <img src="assets/cad/piston.svg" alt="Vista previa: Ensamble de Pistón" loading="lazy" />
         <span class="zoom-hint">⟳</span>
@@ -98,7 +80,7 @@
         <p class="desc">Ensamble pistón–biela–perno con tolerancias GD&amp;T definidas.</p>
         <span class="cad-tag">Ver en 3D</span>
       </div>
-    </div>
+    </a>
   </div>
 </section>
 
@@ -112,24 +94,6 @@
   </div>
 </footer>
 
-<!-- ============ MODAL VISOR 3D ============ -->
-<div class="cad-modal" id="cadModal">
-  <button class="lightbox-close" id="cadModalClose" aria-label="Cerrar">✕</button>
-  <div class="cad-modal-inner">
-    <div class="cad-canvas-wrap" id="cadCanvasWrap">
-      <div class="cad-loading" id="cadLoading">Cargando modelo…</div>
-      <span class="cad-hint">Arrastra para rotar · Scroll para zoom</span>
-    </div>
-    <div class="cad-modal-footer">
-      <div>
-        <h4 id="cadModalTitle"></h4>
-        <p id="cadModalDesc"></p>
-      </div>
-    </div>
-  </div>
-</div>
-
 <script src="js/main.js"></script>
-<script type="module" src="js/cad-viewer.js?v=6"></script>
 </body>
 </html>

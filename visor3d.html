@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Visor 3D — Emilia Gómez Murillo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" href="css/style.css" />
+
+<!-- import map para Three.js (ESM vía CDN) -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<nav class="site-nav">
+  <a class="nav-brand" href="index.html">E. Gómez Murillo</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="certificados.html">Certificados &amp; Reconocimientos</a></li>
+    <li><a href="cad.html" class="active">Diseños CAD · 3D</a></li>
+  </ul>
+  <button class="nav-toggle" aria-label="Abrir menú">☰</button>
+</nav>
+
+<div class="viewer-canvas-host" id="viewerCanvasHost"></div>
+
+<div class="viewer-loading" id="viewerLoading">Cargando modelo…</div>
+
+<div class="viewer-overlay">
+  <a class="back-link" href="cad.html">← Volver a Diseños CAD</a>
+  <h1 id="viewerTitle">Modelo 3D</h1>
+  <p id="viewerDesc"></p>
+  <span class="viewer-hint">Arrastra para rotar · Scroll (o pellizca) para hacer zoom</span>
+</div>
+
+<script src="js/main.js"></script>
+<script type="module" src="js/cad-viewer-page.js"></script>
+</body>
+</html>
